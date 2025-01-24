@@ -25,7 +25,7 @@ def hw02_2(q2_pdf):
     separators=[
         "\n第"
     ]
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size = 70, chunk_overlap = 0, separators = separators)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size = 50, chunk_overlap = 0, separators = separators)
     texts = text_splitter.split_documents([full_document])
     return len(texts)
 
