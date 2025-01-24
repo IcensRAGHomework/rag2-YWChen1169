@@ -23,9 +23,9 @@ def hw02_2(q2_pdf):
     full_text = "".join([doc.page_content for doc in documents])
     # full_document = Document(page_content=full_text.replace(" ", ""))
     separators=[
-        r"第\s+[一二三四五六七八九十百千萬零]+\s+章.*\n",
-        r"第\s+[0-9]+\s+條.*\n",
-        r"第\s+[0-9]+-+[0-9]+\s+條.*\n",
+        r"(?:\n|^|\s*)第\s+[一二三四五六七八九十百千萬零]+\s+章.*\n",
+        r"(?:\n|^|\s*)第\s+\d+\s+條.*\n",
+        r"(?:\n|^|\s*)第\s+\d+-+\d+\s+條.*\n",
     ]
     text_splitter = RecursiveCharacterTextSplitter(chunk_size = 5, chunk_overlap = 0, separators = separators, is_separator_regex = True)
     texts = text_splitter.split_text(full_text)
