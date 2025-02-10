@@ -27,8 +27,8 @@ def hw02_2(q2_pdf):
         # r"\n\s*第\s+[一二三四五六七八九十百千萬零]+\s+章.*\n",
         # r"\n\s*第\s+\d+\s+條.*\n",
         # r"\n\s*第\s+\d+-+\d+\s+條.*\n",
-        r"第\s+.*\s+章.*\n",
-        r"第\s+.*\s+條.*\n",
+        r"第\s+.*\s+章\s+",
+        r"第\s+.*\s+條\s+",
     ]
     text_splitter = RecursiveCharacterTextSplitter(chunk_size = 5, chunk_overlap = 0, separators = separators, is_separator_regex = True)
     texts = text_splitter.split_text(full_text)
