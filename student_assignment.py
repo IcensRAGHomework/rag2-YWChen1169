@@ -20,18 +20,20 @@ def hw02_1(q1_pdf):
 def hw02_2(q2_pdf):
     loader = PyPDFLoader("./"+q2_pdf)
     documents = loader.load()
-    full_text = "/n".join([doc.page_content for doc in documents])
+    full_text = " /n".join([doc.page_content for doc in documents])
     # full_document = Document(page_content=full_text.replace(" ", ""))
-    print(full_text)
+    # print(full_text)
     separators=[
-        r"(?:\n|^|\s*)第\s+[一二三四五六七八九十百千萬零]+\s+章.*\n",
-        r"(?:\n|^|\s*)第\s+\d+\s+條.*\n",
-        r"(?:\n|^|\s*)第\s+\d+-+\d+\s+條.*\n",
+        # r"\n\s*第\s+[一二三四五六七八九十百千萬零]+\s+章.*\n",
+        # r"\n\s*第\s+\d+\s+條.*\n",
+        # r"\n\s*第\s+\d+-+\d+\s+條.*\n",
+        r"第\s+.*\s+章",
+        r"第\s+.*\s+條",
     ]
     text_splitter = RecursiveCharacterTextSplitter(chunk_size = 5, chunk_overlap = 0, separators = separators, is_separator_regex = True)
     texts = text_splitter.split_text(full_text)
 
-    for i in range(10):
+    for i in range(5):
         print("-"*10)
         print(texts[i])
 
