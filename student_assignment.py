@@ -31,7 +31,7 @@ def hw02_2(q2_pdf):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size = 5, chunk_overlap = 0, separators = separators, is_separator_regex = True)
     texts = text_splitter.split_text(full_text)
 
-    for i in range(len(texts)[:10]):
+    for i in range(10):
         print("-"*10)
         print(texts[i])
 
