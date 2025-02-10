@@ -22,7 +22,7 @@ def hw02_2(q2_pdf):
     documents = loader.load()
     full_text = "/n".join([doc.page_content for doc in documents])
     # full_document = Document(page_content=full_text.replace(" ", ""))
-    # print(full_text)
+    print(full_text)
     separators=[
         r"(?:\n|^|\s*)第\s+[一二三四五六七八九十百千萬零]+\s+章.*\n",
         r"(?:\n|^|\s*)第\s+\d+\s+條.*\n",
@@ -31,9 +31,9 @@ def hw02_2(q2_pdf):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size = 5, chunk_overlap = 0, separators = separators, is_separator_regex = True)
     texts = text_splitter.split_text(full_text)
 
-    # for i in range(len(texts)):
-    #     print("-"*10)
-    #     print(texts[i])
+    for i in range(len(texts)[:10]):
+        print("-"*10)
+        print(texts[i])
 
     return len(texts)
 
